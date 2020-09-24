@@ -21,11 +21,14 @@ public class Caesar {
         String end ="";
         for( int i = 0 ; i< message.length(); i++){
             if (message.charAt(i)> 64 && message.charAt(i)< 91){
-                int a = ((message.charAt(i)-68)%26) +65;
+                int a = ((message.charAt(i)-42)%26) +65;
                 end = end + (char)(a);
-            }else{
+            }else if (message.charAt(i)> 96 && message.charAt(i)< 123){
+                int a = ((message.charAt(i)-48)%26) +97;
+                end = end + (char)(a);
+            } else{
                 end = end + message.charAt(i);
-            }   
+            }  
         }
         return end;
     }
@@ -50,11 +53,14 @@ public class Caesar {
         String end ="";
         for( int i = 0 ; i< message.length(); i++){
             if (message.charAt(i)> 64 && message.charAt(i)< 91){
-                int a = ((message.charAt(i)-key-65)%26) +65;
+                int a = (((message.charAt(i)-key)+195)%26) +65;
                 end = end + (char)(a);
-            }else{
+            }else if (message.charAt(i)> 96 && message.charAt(i)< 123){
+                int a = (((message.charAt(i)-key)+163)%26)+97;
+                end = end + (char)(a);
+            } else{
                 end = end + message.charAt(i);
-            }   
+            }  
         }
         return end;
     }
